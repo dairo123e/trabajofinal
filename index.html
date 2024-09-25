@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./frontend/script.js"></script>
+</head>
+<body>
+
+<h1>Adicionar estudiante</h1>
+<div>
+    <form id="adicionarEstudiante">
+        <div>
+            <label for="dni">Documento de identidad:</label>
+            <input type="text" id="dni" placeHolder="">
+            <br>
+
+            <label for="nombre">Nombres:</label>
+            <input type="text" id="nombre" placeHolder="">
+            <br>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" placeHolder="">
+            <br>
+
+            <label for="correo">Email:</label>
+            <input type="text" id="correo" placeHolder="" value="">
+            <br>
+            <br>
+            <br>
+            <input type="submit" onclick="guardar()" value="Aceptar">
+        </div>
+    </form>
+
+</div>
+<h1>Listar estudiantes</h1>
+<div>
+    <form id="listarEstudiantes">
+        <p id="rta">Resultado:</p>
+        <input type="submit" onclick="listar()" value="Aceptar">
+    </form>
+</div>
+
+<h1>Modificar estudiante</h1>
+<div>
+    <form id="actualizarEstudiante">
+        <label for="idA">Identificador:</label>
+        <input type="text" id="idA" placeHolder="">
+        <br>
+
+        <label for="dni">Documento de identidad:</label>
+        <input type="text" id="dniA" placeHolder="">
+        <br>
+
+        <label for="nombre">Nombres:</label>
+        <input type="text" id="nombreA" placeHolder="">
+        <br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidosA" placeHolder="">
+        <br>
+
+        <label for="correoA">Email:</label>
+        <input type="text" id="correoA" placeHolder="">
+        <br>
+        <br>
+        <br>
+        <p id="rtaA">Resultado:</p>
+        <input type="submit" onclick="actualizar()" value="Aceptar">
+    </form>
+</div>
+
+<h1>Listar estudiante</h1>
+<div>
+    <form id="listarunEstudiante">
+        <label for="idLE">Identificador del estudiante a buscar:</label>
+        <input type="text" id="idLE" placeHolder="">
+        <br>
+        <p id="rtaLE">Resultado:</p>
+        <input type="submit" onclick="listar_estudiante()" value="Aceptar">
+    </form>
+</div>
+
+<h1>Eliminar estudiante</h1>
+<div>
+    <form id="eliminarEstudiante">
+        <label for="idEE">Identificador del estudiante a borrar:</label>
+        <input type="text" id="idEE" placeHolder="">
+        <br>
+        <p id="rtaEE">Resultado:</p>
+        <input type="submit" onclick="eliminar_estudiante()" value="Aceptar">
+    </form>
+</div>
+
+</body>
+</html>
