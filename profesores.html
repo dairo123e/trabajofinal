@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./frontend/scriptprofesores.js"></script>
+</head>
+<body>
+
+<h1>Adicionar Profesores</h1>
+<div>
+    <form id="adicionarProfesores">
+        <div>
+            <label for="dni">Documento de identidad:</label>
+            <input type="text" id="dni" placeHolder="">
+            <br>
+
+            <label for="nombre">Nombres:</label>
+            <input type="text" id="nombre" placeHolder="">
+            <br>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" placeHolder="">
+            <br>
+
+            <label for="correo">Email:</label>
+            <input type="text" id="correo" placeHolder="" value="">
+            <br>
+
+            <label for="Profeción">Profeción:</label>
+            <input type="text" id="profecion" placeHolder="">
+            <br>
+            
+            <label for="telefono">telefono:</label>
+            <input type="text" id="telefono" placeHolder="">
+            
+            <br>
+            <br>
+            <input type="submit" onclick="guardarProfesor()" value="Aceptar">
+        </div>
+    </form>
+
+</div>
+<h1>Listar Profesores</h1>
+<div>
+    <form id="listarProfesores">
+        <p id="rta">Resultado:</p>
+        <input type="submit" onclick="listarProfesores()" value="Aceptar">
+    </form>
+</div>
+
+<h1>Modificar Profesores</h1>
+<div>
+    <form id="actualizarProfesores">
+        <label for="idA">Identificador:</label>
+        <input type="text" id="idA" placeHolder="">
+        <br>
+
+        <label for="dni">Documento de identidad:</label>
+        <input type="text" id="dniA" placeHolder="">
+        <br>
+
+        <label for="nombre">Nombres:</label>
+        <input type="text" id="nombreA" placeHolder="">
+        <br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidosA" placeHolder="">
+        <br>
+
+        <label for="correoA">Email:</label>
+        <input type="text" id="correoA" placeHolder="">
+        <br>
+        <label for="Profeción">Profeción:</label>
+        <input type="text" id="Profeción" placeHolder="">
+        <br>
+       
+        <label for="telefono">telefono:</label>
+        <input type="text" id="telefono" placeHolder="">
+            
+        <br>
+        <br>
+        <p id="rtaA">Resultado:</p>
+        <input type="submit" onclick="actualizarProfesor()" value="Aceptar">
+    </form>
+</div>
+
+<h1>Listar Profesores</h1>
+<div>
+    <form id="listarunProfesores">
+        <label for="idLE">Identificador del Profesores a buscar:</label>
+        <input type="text" id="idLE" placeHolder="">
+        <br>
+        <p id="rtaLE">Resultado:</p>
+        <input type="submit" onclick="listarProfesores()" value="Aceptar">
+    </form>
+</div>
+
+<h1>Eliminar Profesores</h1>
+<div>
+    <form id="eliminarProfesores">
+        <label for="idEE">Identificador del Profesores a borrar:</label>
+        <input type="text" id="idEE" placeHolder="">
+        <br>
+        <p id="rtaEE">Resultado:</p>
+        <input type="submit" onclick="eliminarProfesores()" value="Aceptar">
+    </form>
+</div>
+
+</body>
+</html>

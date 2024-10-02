@@ -23,9 +23,9 @@ class ProfesoresController{
     actualizar(req,res){
         const {id} = req.params;
         try{
-            const {dni,nombre,apellidos,email,profesor,telefono} = req.body;
-            db.query('UPDATE profesores SET dni=?, nombre=?, apellidos=?, email=?, profesor=?, telefono=? WHERE id=?;',
-            [dni,nombre,apellidos,email,profesor, telefono, id],(err,rows) => {
+            const {dni,nombre,apellidos,email,profecion,telefono} = req.body;
+            db.query('UPDATE profesores SET dni=?, nombre=?, apellidos=?, email=?, profecion=?, telefono=? WHERE id=?;',
+            [dni,nombre,apellidos,email,profecion, telefono, id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
@@ -40,9 +40,9 @@ class ProfesoresController{
     ingresar(req,res){
         try{
             //console.log ("......lo que llega al ingresar " + req.body.dni);
-            const {dni,nombre,apellidos,email,profesor,telefono} = req.body;
-            db.query('INSERT INTO profesores (id, dni, nombre, apellidos, email,profesor,telefono) VALUES (NULL, ?, ?, ?, ?,?,?);',
-            [dni,nombre,apellidos,email,profesor,telefono],(err,rows) => {
+            const {dni,nombre,apellidos,email,profecion,telefono} = req.body;
+            db.query('INSERT INTO profesores (id, dni, nombre, apellidos, email,profecion,telefono) VALUES (NULL, ?, ?, ?, ?,?,?);',
+            [dni,nombre,apellidos,email,profecion,telefono],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }else {
@@ -58,8 +58,8 @@ class ProfesoresController{
         const {id} = req.params;
         /*res.json ({msg:'Consulta detalle estudiantes desde clase y id de  '+id}); */
         try{
-            const {dni,nombre,apellido,email,profesor,telefono} = req.body;
-            db.query('SELECT  * FROM profesores WHERE id=?',
+            const {dni,nombre,apellido,email,profecion,telefono} = req.body;
+            db.query('SELECT  * FROM profecion WHERE id=?',
             [id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);

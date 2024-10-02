@@ -150,3 +150,6 @@ function eliminar_estudiante(){
       .catch((error) =>
         console.error(error));
 }
+
+
+
