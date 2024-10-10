@@ -2,12 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="./frontend/scriptprofesores.js"></script>
+<script type="text/javascript" src="./frontend/scriptP.js"></script>
 </head>
 <body>
 
-<h1>Adicionar Profesores</h1>
+<h1>Adicionar profesores</h1>
 <div>
+    <div>
+        <a href="index.html">estudiantes</a>
+        <a href="profesores.html">profesores</a>
+    </div>
+    <h1>Adicionar Profesor</h1>
+    </div>
     <form id="adicionarProfesores">
         <div>
             <label for="dni">Documento de identidad:</label>
@@ -26,29 +32,29 @@
             <input type="text" id="correo" placeHolder="" value="">
             <br>
 
-            <label for="Profeción">Profeción:</label>
-            <input type="text" id="profecion" placeHolder="">
+            <label for="profecion">Profecion:</label>
+            <input type="text" id="profecion" placeHolder="" value="">
             <br>
-            
-            <label for="telefono">telefono:</label>
-            <input type="text" id="telefono" placeHolder="">
-            
+
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" placeHolder="" value="">
             <br>
             <br>
-            <input type="submit" onclick="guardarProfesor()" value="Aceptar">
+            <br>
+            <input type="submit" onclick="guardar()" value="Aceptar">
         </div>
     </form>
 
 </div>
-<h1>Listar Profesores</h1>
+<h1>Listar profesores</h1>
 <div>
     <form id="listarProfesores">
         <p id="rta">Resultado:</p>
-        <input type="submit" onclick="listarProfesores()" value="Aceptar">
+        <input type="submit" onclick="listar()" value="Aceptar">
     </form>
 </div>
 
-<h1>Modificar Profesores</h1>
+<h1>Modificar profesores</h1>
 <div>
     <form id="actualizarProfesores">
         <label for="idA">Identificador:</label>
@@ -70,39 +76,40 @@
         <label for="correoA">Email:</label>
         <input type="text" id="correoA" placeHolder="">
         <br>
-        <label for="Profeción">Profeción:</label>
-        <input type="text" id="Profeción" placeHolder="">
+
+        <label for="profecionA">Profecion:</label>
+        <input type="text" id="profecionA" placeHolder="">
         <br>
-       
-        <label for="telefono">telefono:</label>
-        <input type="text" id="telefono" placeHolder="">
-            
+
+        <label for="telefonoA">Telefono:</label>
+        <input type="text" id="telefonoA placeHolder="">
+        <br>
         <br>
         <br>
         <p id="rtaA">Resultado:</p>
-        <input type="submit" onclick="actualizarProfesor()" value="Aceptar">
+        <input type="submit" onclick="actualizar()" value="Aceptar">
     </form>
 </div>
 
 <h1>Listar Profesores</h1>
 <div>
-    <form id="listarunProfesores">
-        <label for="idLE">Identificador del Profesores a buscar:</label>
+    <form id="listarunProfesor">
+        <label for="idLE">Identificador del profesor a buscar:</label>
         <input type="text" id="idLE" placeHolder="">
         <br>
         <p id="rtaLE">Resultado:</p>
-        <input type="submit" onclick="listarProfesores()" value="Aceptar">
+        <input type="submit" onclick="listar_profesores()" value="Aceptar">
     </form>
 </div>
 
-<h1>Eliminar Profesores</h1>
+<h1>Eliminar Profesor</h1>
 <div>
-    <form id="eliminarProfesores">
-        <label for="idEE">Identificador del Profesores a borrar:</label>
+    <form id="eliminarProfesor">
+        <label for="idEE">Identificador del profesor a borrar:</label>
         <input type="text" id="idEE" placeHolder="">
         <br>
         <p id="rtaEE">Resultado:</p>
-        <input type="submit" onclick="eliminarProfesores()" value="Aceptar">
+        <input type="submit" onclick="eliminar_profesores()" value="Aceptar">
     </form>
 </div>
 

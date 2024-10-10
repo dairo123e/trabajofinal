@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="./frontend/scriptCursos.js"></script>
+  </head>
+  <body>
+    <div>
+      <a href="index.html">estudiante</a>
+      <a href="cursos.html">cursos</a>
+    </div>
+    <h1>Adicionar cursos</h1>
+    <div>
+      <form id="adicionarCursos">
+        <div>
+          <label for="nombre">Nombres:</label>
+          <input type="text" id="nombre" placeholder="" />
+          <br />
+
+          <label for="descripcion">Descripcion:</label>
+          <input type="text" id="descripcion" placeholder="" />
+          <br />
+
+          <label for="profesor_id">ID profesor:</label>
+          <input type="text" id="profesor_id" placeholder="" value="" />
+          <br />
+          <br />
+          <br />
+          <input type="submit" onclick="guardar()" value="Aceptar" />
+        </div>
+      </form>
+    </div>
+    <h1>Listar de Cursos</h1>
+    <div>
+      <form id="listarCursos">
+        <p id="rta">Resultado:</p>
+        <input type="submit" onclick="listar()" value="Aceptar" />
+      </form>
+    </div>
+
+    <h1>Modificar curso</h1>
+    <div>
+      <form id="actualizarCurso">
+        <label for="idA">Identificador:</label>
+        <input type="text" id="idA" placeholder="" />
+        <br />
+
+        <label for="nombreA">Nombres:</label>
+        <input type="text" id="nombreA" placeholder="" />
+        <br />
+
+        <label for="descripcionA">Descripcion:</label>
+        <input type="text" id="descripcionA" placeholder="" />
+        <br />
+
+        <label for="profesor_idA">Profesor_id:</label>
+        <input type="text" id="profesor_idA" placeholder="" />
+        <br />
+        <br />
+        <br />
+        <p id="rtaA">Resultado:</p>
+        <input type="submit" onclick="actualizar()" value="Aceptar" />
+      </form>
+    </div>
+
+    <h1>Listar curso</h1>
+    <div>
+      <form id="listarunCurso">
+        <label for="idLE">Identificador del Curso a buscar:</label>
+        <input type="text" id="idLE" placeholder="" />
+        <br />
+        <p id="rtaLE">Resultado:</p>
+        <input type="submit" onclick="listar_Cursos()" value="Aceptar" />
+      </form>
+    </div>
+
+    <h1>Eliminar cursos</h1>
+    <div>
+      <form id="eliminarCurso">
+        <label for="idEE">Identificador del curso a borrar:</label>
+        <input type="text" id="idEE" placeholder="" />
+        <br />
+        <p id="rtaEE">Resultado:</p>
+        <input type="submit" onclick="eliminar_curso()" value="Aceptar" />
+      </form>
+    </div>
+  </body>
+</html>
