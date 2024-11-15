@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar Usuario</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registro de Usuario</h1>
+      <form action="{{ url_for('register') }}" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required />
+
+        <label for="email">Correo:</label>
+        <input type="email" name="email" required />
+
+        <label for="rol">Rol:</label>
+        <select name="rol" required>
+          <option value="ADMIN">ADMIN</option>
+          <option value="PROFESOR">PROFESOR</option>
+          <option value="ESTUDIANTE">ESTUDIANTE</option>
+        </select>
+
+        <button type="submit">Registrar</button>
+      </form>
+
+      <button onclick="window.history.back()">Volver</button>
+      <!-- Botón de retroceso -->
+
+      {% if qr_path %}
+      <h3>Escanea este código QR con tu app de autenticación</h3>
+      <img src="{{ url_for('static', filename=qr_path) }}" alt="QR Code" />
+      {% endif %}
+    </div>
+  </body>
+</html>

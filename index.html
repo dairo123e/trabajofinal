@@ -1,98 +1,170 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="./frontend/script.js"></script>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="./frontend/script.js"></script>
+  <title>Inicio de Sesión con SMS</title>
+  <style>
+    /* Ocultar el contenedor de formularios hasta que se autentique */
+    #student-forms {
+      display: none;
+    }
+    /* Ocultar el formulario de verificación hasta que se envíe el código */
+    #verify-form {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Adicionar estudiante</h1>
-<div>
+  <!-- Formulario de Autenticación por SMS -->
+  <h2>Inicio de Sesión</h2>
+  <div id="login-form">
+    <label for="phone">Número de Teléfono:</label>
+    <input type="text" id="phone" placeholder="+123456789" required>
+    <button onclick="sendCode()">Enviar Código</button>
+  </div>
+
+  <div id="verify-form">
+    <label for="code">Código de Verificación:</label>
+    <input type="text" id="code" placeholder="Ingresa el código" required>
+    <button onclick="verifyCode()">Verificar Código</button>
+  </div>
+
+  <hr>
+
+  <!-- Contenedor para el resto de la página, inicialmente oculto -->
+  <div id="student-forms">
+    <h1>Adicionar estudiante</h1>
     <div>
+      <div>
         <a href="profesor.html">profesores</a>
-    </div>
-    <form id="adicionarEstudiante">
+        <a href="cursos.html">cursos</a>
+      </div>
+      <form id="adicionarEstudiante">
         <div>
-            <label for="dni">Documento de identidad:</label>
-            <input type="text" id="dni" placeHolder="">
-            <br>
+          <label for="dni">Documento de identidad:</label>
+          <input type="text" id="dni" placeholder="">
+          <br>
 
-            <label for="nombre">Nombres:</label>
-            <input type="text" id="nombre" placeHolder="">
-            <br>
+          <label for="nombre">Nombres:</label>
+          <input type="text" id="nombre" placeholder="">
+          <br>
 
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" placeHolder="">
-            <br>
+          <label for="apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" placeholder="">
+          <br>
 
-            <label for="correo">Email:</label>
-            <input type="text" id="correo" placeHolder="" value="">
-            <br>
-            <br>
-            <br>
-            <input type="submit" onclick="guardar()" value="Aceptar">
+          <label for="correo">Email:</label>
+          <input type="text" id="correo" placeholder="" value="">
+          <br>
+          <br>
+          <br>
+          <input type="submit" onclick="guardar()" value="Aceptar">
         </div>
-    </form>
+      </form>
+    </div>
 
-</div>
-<h1>Listar estudiantes</h1>
-<div>
-    <form id="listarEstudiantes">
+    <h1>Listar estudiantes</h1>
+    <div>
+      <form id="listarEstudiantes">
         <p id="rta">Resultado:</p>
         <input type="submit" onclick="listar()" value="Aceptar">
-    </form>
-</div>
+      </form>
+    </div>
 
-<h1>Modificar estudiante</h1>
-<div>
-    <form id="actualizarEstudiante">
-        <label for="idA">Identificador:</label>
-        <input type="text" id="idA" placeHolder="">
+    <h1>Modificar estudiante</h1>
+    <div>
+      <form id="actualizarEstudiante">
+        <label for="idA
+        ">Identificador:</label>
+        <input type="text" id="idA" placeholder="">
         <br>
 
         <label for="dni">Documento de identidad:</label>
-        <input type="text" id="dniA" placeHolder="">
+        <input type="text" id="dniA" placeholder="">
         <br>
 
         <label for="nombre">Nombres:</label>
-        <input type="text" id="nombreA" placeHolder="">
+        <input type="text" id="nombreA" placeholder="">
         <br>
 
         <label for="apellidos">Apellidos:</label>
-        <input type="text" id="apellidosA" placeHolder="">
+        <input type="text" id="apellidosA" placeholder="">
         <br>
 
         <label for="correoA">Email:</label>
-        <input type="text" id="correoA" placeHolder="">
+        <input type="text" id="correoA" placeholder="">
         <br>
         <br>
         <br>
         <p id="rtaA">Resultado:</p>
         <input type="submit" onclick="actualizar()" value="Aceptar">
-    </form>
-</div>
+      </form>
+    </div>
 
-<h1>Listar estudiante</h1>
-<div>
-    <form id="listarunEstudiante">
+    <h1>Listar estudiante</h1>
+    <div>
+      <form id="listarunEstudiante">
         <label for="idLE">Identificador del estudiante a buscar:</label>
-        <input type="text" id="idLE" placeHolder="">
+        <input type="text" id="idLE" placeholder="">
         <br>
         <p id="rtaLE">Resultado:</p>
         <input type="submit" onclick="listar_estudiante()" value="Aceptar">
-    </form>
-</div>
+      </form>
+    </div>
 
-<h1>Eliminar estudiante</h1>
-<div>
-    <form id="eliminarEstudiante">
+    <h1>Eliminar estudiante</h1>
+    <div>
+      <form id="eliminarEstudiante">
         <label for="idEE">Identificador del estudiante a borrar:</label>
-        <input type="text" id="idEE" placeHolder="">
+        <input type="text" id="idEE" placeholder="">
         <br>
         <p id="rtaEE">Resultado:</p>
         <input type="submit" onclick="eliminar_estudiante()" value="Aceptar">
-    </form>
-</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Función para enviar el código SMS
+    function sendCode() {
+      const phoneNumber = document.getElementById('phone').value;
+      fetch('/.netlify/functions/send-sms', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: phoneNumber })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('login-form').style.display = 'none';
+          document.getElementById('verify-form').style.display = 'block';
+        } else {
+          alert('Error enviando el código.');
+        }
+      });
+    }
+
+    // Función para verificar el código SMS
+    function verifyCode() {
+      const code = document.getElementById('code').value;
+      fetch('/.netlify/functions/verify-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: code })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          document.getElementById('verify-form').style.display = 'none';
+          document.getElementById('student-forms').style.display = 'block';
+        } else {
+          alert('Código incorrecto. Inténtalo de nuevo.');
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>

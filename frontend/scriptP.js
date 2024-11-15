@@ -120,9 +120,7 @@ function listar_profesores() {
   };
   let elid = document.getElementById("idLE").value;
   fetch(
-    "http://localhost:8888/.netlify/functions/profesores/" + elid,
-    requestOptions
-  )
+    "http://localhost:8888/.netlify/functions/profesores/" + elid, requestOptions)
     .then((response) => response.text())
     .then((result) => cargarLE(result))
     .catch((error) => console.error(error));

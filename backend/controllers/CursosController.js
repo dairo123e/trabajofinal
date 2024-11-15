@@ -74,7 +74,7 @@ class CursosController{
         const {id} = req.params;
         try{
             //const {dni,nombre,apellido,email,profesor,telefono} = req.body;
-            db.query('SELECT  * FROM cursos WHERE id=?',[id],(err,rows) => {
+            db.query('SELECT  * FROM cursos WHERE Id=?',[id],(err,rows) => {
                 if(err) {
                     res.status (400).send(err.message);
                 }
